@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        function Insert()
+        {
+            $.ajax({
+                url: 'WebService1.asmx/EmployeeInsert',
+                type: 'post',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: "{A:'" + $("#txtName").val() + "' , B:'" + $("#txtAddress").val() + "', C:'" + $("#txtAge").val() + "'}",
+                success: function ()
+                {
+                    alert('Record saved successfully');
+                },
+                error: function () {
+                    alert('Record not saved successfully');
+                }
+
+            });
+       }
+    </script>
+        <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td> Name:</td>
+            <td><input type="text" id="txtName" /></td>
+
+            <td> Address:</td>
+            <td><input type="text" id="txtAddress" /></td>
+
+            <td> Age:</td>
+            <td><input type="text" id="txtAge" /></td>
+
+            <td> </td>
+            <td><input type="button" id="btnInsert" value="Save"  onclick="Insert()" /> </td>
+        </tr>
+    </table>
+</body>
+</html>
